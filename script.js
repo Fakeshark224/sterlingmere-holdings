@@ -1,5 +1,8 @@
 // script.js
 
+// Initialize EmailJS
+emailjs.init('GOp1gJ7fwI2fpQuj3');
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Navbar Scroll Effect
     const navbar = document.querySelector('.navbar');
@@ -67,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Form Submission Handler
+    // 4. Form Submission Handler with EmailJS
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -75,22 +78,47 @@ document.addEventListener('DOMContentLoaded', () => {
             const btn = contactForm.querySelector('button[type="submit"]');
             const originalText = btn.textContent;
             
-            // Simulate sending
+            // Show sending state
             btn.textContent = 'Sending...';
             btn.style.opacity = '0.7';
+            btn.disabled = true;
+
+            // Prepare the template parameters from the form inputs
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                to_email: 'sterlingmereholdings@gmail.com'
+            };
             
-            setTimeout(() => {
-                btn.textContent = 'Message Sent!';
-                btn.style.background = '#10b981'; // Success green
-                btn.style.opacity = '1';
-                contactForm.reset();
-                
-                // Reset button after 3 seconds
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = '';
-                }, 3000);
-            }, 1500);
+            // Send email using EmailJS
+            emailjs.send('service_wnetbld', 'template_qwipc5i', templateParams)
+                .then(() => {
+                    // Success
+                    btn.textContent = 'Message Sent!';
+                    btn.style.background = '#10b981'; // Success green
+                    btn.style.opacity = '1';
+                    contactForm.reset();
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                    }, 3000);
+                }, (error) => {
+                    // Error
+                    console.error('Failed to send email:', error);
+                    btn.textContent = 'Error! Try Again.';
+                    btn.style.background = '#ef4444'; // Error red
+                    btn.style.opacity = '1';
+                    
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                    }, 3000);
+                });
         });
     }
 });

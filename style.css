@@ -396,7 +396,7 @@ p {
 
 .contact-link {
     display: inline-block;
-    font-size: 1.25rem;
+    font-size: clamp(0.85rem, 5vw, 1.25rem);
     color: var(--text-primary);
     text-decoration: none;
     margin-top: 1rem;

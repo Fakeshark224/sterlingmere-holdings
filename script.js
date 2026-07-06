@@ -121,4 +121,64 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         });
     }
+
+    // 5. Custom Mouse Follower Glow
+    const cursorGlow = document.createElement('div');
+    cursorGlow.classList.add('cursor-glow');
+    document.body.appendChild(cursorGlow);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let glowX = 0;
+    let glowY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animateGlow() {
+        // Smoothly interpolate current glow position to mouse position
+        glowX += (mouseX - glowX) * 0.1;
+        glowY += (mouseY - glowY) * 0.1;
+        
+        cursorGlow.style.left = glowX + 'px';
+        cursorGlow.style.top = glowY + 'px';
+        
+        requestAnimationFrame(animateGlow);
+    }
+    animateGlow();
+
+    // Enlarge glow when hovering over buttons or cards
+    const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .service-card');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursorGlow.style.width = '600px';
+            cursorGlow.style.height = '600px';
+            cursorGlow.style.background = 'radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(99, 102, 241, 0.05) 50%, rgba(0, 0, 0, 0) 70%)';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursorGlow.style.width = '400px';
+            cursorGlow.style.height = '400px';
+            cursorGlow.style.background = 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.05) 50%, rgba(0, 0, 0, 0) 70%)';
+        });
+    });
+
+    // 6. Initialize Vanilla Tilt for 3D Cards
+    if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll(".service-card"), {
+            max: 10,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+        });
+
+        VanillaTilt.init(document.querySelectorAll(".portfolio-card"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.3,
+            scale: 1.02
+        });
+    }
 });

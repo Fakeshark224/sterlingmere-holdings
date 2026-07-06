@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const templateParams = {
                 from_name: document.getElementById('name').value,
                 from_email: document.getElementById('email').value,
-                message: document.getElementById('message').value,
+                message: "Project Type: " + document.getElementById('project-type').value + "\n\n" + document.getElementById('message').value,
                 to_email: 'sterlingmereholdings@gmail.com'
             };
             

@@ -1,19 +1,23 @@
 // script.js
 
-// Initialize EmailJS
-emailjs.init('GOp1gJ7fwI2fpQuj3');
+// Initialize EmailJS safely
+if (typeof emailjs !== 'undefined') {
+    emailjs.init('GOp1gJ7fwI2fpQuj3');
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Navbar Scroll Effect
     const navbar = document.querySelector('.navbar');
     
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
 
     // 2. Scroll Animations using Intersection Observer
     const animatedElements = document.querySelectorAll('.fade-up');

@@ -1,0 +1,209 @@
+/* case-study.css - Styling specifically for Sterlingmere Case Study pages */
+
+/* Reset & Basic Variables (Extending style.css) */
+:root {
+    --cs-accent: #6366f1;
+    --cs-accent-light: rgba(99, 102, 241, 0.2);
+    --cs-card-bg: rgba(20, 20, 25, 0.7);
+    --cs-border: rgba(255, 255, 255, 0.08);
+}
+
+.case-study-page {
+    background-color: var(--bg-color, #050505);
+    color: var(--text-color, #f8f9fa);
+}
+
+/* Back Button */
+.back-nav {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 100;
+}
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--cs-border);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+.back-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-5px);
+}
+
+/* Case Study Hero */
+.cs-hero {
+    padding: 10rem 0 5rem 0;
+    text-align: center;
+    position: relative;
+}
+.cs-hero .badge {
+    background: var(--cs-accent-light);
+    color: #a78bfa;
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+.cs-hero h1 {
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.cs-hero p {
+    font-size: 1.25rem;
+    color: #a0a0a0;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+/* Hero Image Mockup */
+.cs-mockup {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--cs-border);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+.cs-mockup img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.cs-mockup:hover img {
+    transform: scale(1.02);
+}
+
+/* Metrics Section */
+.cs-metrics {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--cs-border);
+}
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+.metric-card {
+    background: var(--cs-card-bg);
+    border: 1px solid var(--cs-border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+.metric-card h3 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+.metric-card p {
+    color: #a0a0a0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Content Grid (Challenge / Solution) */
+.cs-content {
+    padding: 6rem 0;
+}
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+.content-block h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+.content-block h2 span {
+    color: var(--cs-accent);
+}
+.content-block p {
+    color: #a0a0a0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+.content-block ul {
+    list-style: none;
+    padding: 0;
+}
+.content-block ul li {
+    color: #a0a0a0;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+.content-block ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--cs-accent);
+    font-weight: bold;
+}
+
+/* CTA Footer */
+.cs-cta {
+    padding: 8rem 0;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(5,5,5,0) 0%, rgba(99,102,241,0.05) 100%);
+}
+.cs-cta h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+.cs-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+@media (max-width: 768px) {
+    .cs-hero h1 {
+        font-size: 2.5rem;
+    }
+    .metric-card h3 {
+        font-size: 2.5rem;
+    }
+    .cs-cta-buttons {
+        flex-direction: column;
+    }
+}

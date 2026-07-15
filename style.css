@@ -595,3 +595,13 @@ footer {
         display: none !important;
     }
 }
+
+/* View More Logic */
+.portfolio-card.hidden {
+    display: none;
+}
+.view-more-container {
+    text-align: center;
+    margin-top: 4rem;
+    width: 100%;
+}

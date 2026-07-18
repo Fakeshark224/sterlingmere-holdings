@@ -188,31 +188,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// View More Logic for Portfolio
-document.addEventListener('DOMContentLoaded', () => {
-    const portfolioCards = document.querySelectorAll('.portfolio-card');
-    const viewMoreBtn = document.getElementById('viewMoreBtn');
-    
-    // Hide cards past index 5 (the 6th card)
-    portfolioCards.forEach((card, index) => {
-        if (index > 5) {
-            card.classList.add('hidden');
-        }
-    });
 
-    if (viewMoreBtn) {
-        if (portfolioCards.length <= 6) {
-            viewMoreBtn.style.display = 'none';
-        } else {
-            viewMoreBtn.addEventListener('click', () => {
-                portfolioCards.forEach(card => card.classList.remove('hidden'));
-                viewMoreBtn.style.display = 'none';
-                
-                // Re-trigger scroll animations for newly revealed cards if needed
-                setTimeout(() => {
-                    window.dispatchEvent(new Event('scroll'));
-                }, 100);
-            });
-        }
-    }
-});

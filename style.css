@@ -1,10 +1,11 @@
-/* style.css - Premium Dark Theme */
+/* style.css - Premium Dark Theme (NotionLabs Standard) */
 
 :root {
-    --bg-main: #050505;
+    --bg-main: #0a0a0a;
     --bg-secondary: #111111;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
+    --text-primary: #f5f5f7;
+    --text-secondary: #888888;
+    --glass-border: rgba(255, 255, 255, 0.08);
     
     --accent-1: #6366f1; /* Indigo */
     --accent-2: #a855f7; /* Purple */
@@ -12,7 +13,7 @@
     
     --font-main: 'Inter', sans-serif;
     
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -84,7 +85,7 @@ body {
 }
 
 .section {
-    padding: 100px 0;
+    padding: 8rem 0;
 }
 
 /* Typography & Utilities */
@@ -94,13 +95,16 @@ h1, h2, h3, h4 {
     margin-bottom: 1rem;
 }
 
-h1 { font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.03em; }
+h1 { font-size: clamp(3rem, 6vw, 5.5rem); letter-spacing: -0.04em; line-height: 1.1; }
 h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -0.02em; }
 h3 { font-size: 1.5rem; }
 
 p {
     color: var(--text-secondary);
     font-size: 1.125rem;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    max-width: 60ch;
     margin-bottom: 1.5rem;
 }
 
@@ -147,18 +151,20 @@ p {
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .btn-secondary {
     background: rgba(255, 255, 255, 0.05);
     color: var(--text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
 }
 
 .btn-secondary:hover {
+    transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Navbar */
@@ -174,10 +180,10 @@ p {
 }
 
 .navbar.scrolled {
-    background: rgba(5, 5, 5, 0.8);
+    background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--glass-border);
     padding: 1rem 0;
 }
 
@@ -261,21 +267,21 @@ p {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .service-card {
     background: var(--bg-secondary);
     padding: 2.5rem;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
     transition: var(--transition);
 }
 
 .service-card:hover {
     transform: translateY(-5px);
     border-color: rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 .service-icon {
@@ -299,15 +305,15 @@ p {
 .portfolio-card {
     background: var(--bg-secondary);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
     overflow: hidden;
     transition: var(--transition);
 }
 
 .portfolio-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
 .portfolio-img {
@@ -359,8 +365,8 @@ p {
 /* About Section */
 .about {
     background: var(--bg-secondary);
-    border-top: 1px solid rgba(255, 255, 255, 0.02);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
 }
 
 .about-content {
@@ -394,7 +400,7 @@ p {
     background: var(--bg-secondary);
     padding: 4rem;
     border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
 }
 
 .contact-link {
@@ -522,31 +528,35 @@ footer {
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* simple implementation for now */
+        display: none;
     }
-    
+
     .mobile-menu-btn {
         display: flex;
     }
-    
+
+    .section {
+        padding: 5rem 0;
+    }
+
     .hero {
         padding-top: 100px;
         text-align: center;
     }
-    
+
     .hero-content {
         margin: 0 auto;
     }
-    
+
     .hero-actions {
         justify-content: center;
     }
-    
+
     .stats-row {
         flex-direction: column;
         gap: 2rem;
     }
-    
+
     .footer-container {
         flex-direction: column;
         gap: 1.5rem;
@@ -559,34 +569,34 @@ footer {
     h1 {
         font-size: clamp(2rem, 10vw, 3rem);
     }
-    
+
     h2 {
         font-size: clamp(1.75rem, 8vw, 2.5rem);
     }
-    
+
     .hero-actions {
         flex-direction: column;
         width: 100%;
     }
-    
+
     .hero-actions .btn {
         width: 100%;
     }
-    
+
     .portfolio-grid,
     .services-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-card {
         padding: 1.5rem;
         gap: 1.5rem;
     }
-    
+
     .section {
-        padding: 60px 0;
+        padding: 5rem 0;
     }
-    
+
     .stat-item h4 {
         font-size: 2.25rem;
     }

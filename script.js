@@ -189,3 +189,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+// FAQ Accordion Logic
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close all other FAQs
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+            otherItem.classList.remove('active');
+        });
+
+        // Toggle current FAQ
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});

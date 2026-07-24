@@ -302,6 +302,7 @@ p {
     transform: translateY(-8px) scale(1.02) !important;
     border-color: rgba(99, 102, 241, 0.3);
     box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+    animation: borderShimmer 3s ease-in-out infinite;
 }
 
 .service-icon {
@@ -576,16 +577,13 @@ footer {
     50% { border-color: rgba(168, 85, 247, 0.4); }
     100% { border-color: rgba(236, 72, 153, 0.3); }
 }
-.service-card:hover {
-    animation: borderShimmer 3s ease-in-out infinite;
-}
 /* Smooth Page Load Entrance */
 @keyframes navSlideDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 .navbar {
-    animation: navSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: navSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 /* Active Nav Link Indicator */
 .nav-links a.active {

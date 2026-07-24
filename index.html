@@ -51,7 +51,7 @@
         <!-- Hero Section -->
         <section id="hero" class="hero section">
             <div class="container">
-                    <span class="badge fade-up">Specialized Digital Solutions for Healthcare & Aesthetics</span>
+                    <span class="badge fade-in">Specialized Digital Solutions for Healthcare & Aesthetics</span>
                     <h1 class="fade-up delay-1">
                         We Engineer Patient<br />
                         <span class="text-gradient">Acquisition Engines.</span>
@@ -75,23 +75,23 @@
                     <p>End-to-end digital solutions designed for performance and scale.</p>
                 </div>
                 
-                <div class="services-grid">
-                    <div class="service-card fade-up">
+                <div class="services-grid" data-stagger="true">
+                    <div class="service-card scale-in">
                         <div class="service-icon"><i data-feather="layout"></i></div>
                         <h3>Trust-Optimized Landing Pages</h3>
                         <p>Beautiful, HIPAA-compliant designs tailored to your clinic's brand to build immediate trust with patients.</p>
                     </div>
-                    <div class="service-card fade-up delay-1">
+                    <div class="service-card scale-in">
                         <div class="service-icon"><i data-feather="calendar"></i></div>
                         <h3>Custom Booking Funnels</h3>
                         <p>Seamless calendar integrations so patients can book high-ticket treatments 24/7 without calling the front desk.</p>
                     </div>
-                    <div class="service-card fade-up delay-2">
+                    <div class="service-card scale-in">
                         <div class="service-icon"><i data-feather="shopping-cart"></i></div>
                         <h3>Treatment Menus & Payments</h3>
                         <p>Clear, conversion-focused service menus with secure deposit and payment collection architecture.</p>
                     </div>
-                    <div class="service-card fade-up delay-3">
+                    <div class="service-card scale-in">
                         <div class="service-icon"><i data-feather="zap"></i></div>
                         <h3>Local SEO & Performance</h3>
                         <p>Lightning-fast load times and local map optimization to ensure you rank #1 when patients search for treatments.</p>
@@ -108,11 +108,11 @@
                     <p>A selection of our recent digital masterpieces.</p>
                 </div>
                 
-                <div class="portfolio-grid">
+                <div class="portfolio-grid" data-stagger="true">
                     <!-- Project 1: Med Spa -->
-                    <div class="portfolio-card fade-up">
+                    <div class="portfolio-card scale-in">
                         <div class="portfolio-img">
-                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=800" alt="Med Spa Website">
+                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=800" alt="Med Spa Website" loading="lazy">
                         </div>
                         <div class="portfolio-info">
                             <div class="portfolio-tags">
@@ -121,17 +121,17 @@
                             </div>
                             <h3>Premium Med Spa</h3>
                             <p>An elite, high-fashion digital architecture designed for luxury cosmetic clinics and medical spas.</p>
-                            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
-                                <a href="case-study-medspa.html" class="btn btn-primary" style="flex: 1; padding: 0.5rem; text-align: center; font-size: 0.9rem;">Read Case Study</a>
-                                <a href="https://medspa-demosite.vercel.app/" class="btn btn-secondary" style="flex: 1; padding: 0.5rem; text-align: center; font-size: 0.9rem;" target="_blank">Live Demo &rarr;</a>
+                            <div class="portfolio-btn-group">
+                                <a href="case-study-medspa.html" class="btn btn-primary portfolio-btn">Read Case Study</a>
+                                <a href="https://medspa-demosite.vercel.app/" class="btn btn-secondary portfolio-btn" target="_blank">Live Demo &rarr;</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 2: Medical -->
-                    <div class="portfolio-card fade-up delay-1">
+                    <div class="portfolio-card scale-in">
                         <div class="portfolio-img">
-                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="Medical Clinic Website">
+                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="Medical Clinic Website" loading="lazy">
                         </div>
                         <div class="portfolio-info">
                             <div class="portfolio-tags">
@@ -140,9 +140,9 @@
                             </div>
                             <h3>Premium Medical Clinic</h3>
                             <p>A trust-building, highly professional website designed for doctors and clinical practices.</p>
-                            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
-                                <a href="case-study-medical.html" class="btn btn-primary" style="flex: 1; padding: 0.5rem; text-align: center; font-size: 0.9rem;">Read Case Study</a>
-                                <a href="https://doctor-demosite.vercel.app/" class="btn btn-secondary" style="flex: 1; padding: 0.5rem; text-align: center; font-size: 0.9rem;" target="_blank">Live Demo &rarr;</a>
+                            <div class="portfolio-btn-group">
+                                <a href="case-study-medical.html" class="btn btn-primary portfolio-btn">Read Case Study</a>
+                                <a href="https://doctor-demosite.vercel.app/" class="btn btn-secondary portfolio-btn" target="_blank">Live Demo &rarr;</a>
                             </div>
                         </div>
                     </div>
@@ -229,8 +229,8 @@
         </section>
         <section id="contact" class="contact section">
             <div class="container">
-                <div class="contact-card fade-up">
-                    <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-info slide-left">
                         <h2>Ready to transform your digital presence?</h2>
                         <p>Let's discuss how we can help your clinic scale.</p>
 
@@ -244,7 +244,7 @@
                             <a href="mailto:sterlingmeremail@gmail.com" class="contact-link">sterlingmeremail@gmail.com</a>
                         </div>
                     </div>
-                    <form id="contact-form" class="contact-form">
+                    <form id="contact-form" class="contact-form slide-right">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" required placeholder="John Doe">

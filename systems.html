@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Systems | Sterlingmere Holdings</title>
+    <meta name="description" content="Explore our proprietary digital architectures engineered specifically for elite medical practices and luxury medspas.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Page Specific CSS for Layout -->
+    <style>
+        .system-showcase { padding: 8rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .system-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
+        .system-image-wrapper { background: var(--bg-surface); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-lg); }
+        .system-image-wrapper img { width: 100%; border-radius: 8px; }
+        .feature-list { list-style: none; padding: 0; margin-top: 2rem; }
+        .feature-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+        .feature-list i { color: var(--primary-light); flex-shrink: 0; margin-top: 4px; }
+        .feature-list h4 { color: var(--text-light); margin-bottom: 0.2rem; font-size: 1.1rem; }
+        .feature-list p { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
+        
+        @media (max-width: 992px) {
+            .system-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .system-grid.reverse { direction: rtl; }
+            .system-grid.reverse > * { direction: ltr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow glow-1"></div>
+    
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Sterlingmere.</a>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav-links">
+                <a href="index.html#services">Services</a>
+                <a href="systems.html" class="active">Our Systems</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#work">Work</a>
+                <a href="index.html#contact" class="btn btn-primary nav-cta">Start a Project</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- Page Header -->
+        <section class="section" style="padding-top: 150px; padding-bottom: 4rem; text-align: center;">
+            <div class="container">
+                <span class="badge fade-in">Proprietary Architecture</span>
+                <h1 class="fade-up delay-1" style="font-size: clamp(2.5rem, 5vw, 4.5rem); margin: 1.5rem 0;">Digital Infrastructure for <br><span class="text-gradient">Elite Medical Practices.</span></h1>
+                <p class="fade-up delay-2" style="max-width: 700px; margin: 0 auto;">We don't build websites. We engineer high-converting patient acquisition systems. Explore our two flagship architectures below.</p>
+            </div>
+        </section>
+        <!-- System 1: Medspa -->
+        <section class="system-showcase">
+            <div class="container">
+                <div class="system-grid fade-up">
+                    <div class="system-content">
+                        <span style="color: var(--primary-color); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem;">Platform 01</span>
+                        <h2 style="font-size: 2.5rem; margin: 1rem 0;">The "Clinical Elegance" Platform</h2>
+                        <p>Engineered exclusively for luxury Medspas, Aesthetic Clinics, and Injectors. This architecture leverages high-end design psychology to position your clinic as the most premium option in your city.</p>
+                        
+                        <ul class="feature-list">
+                            <li>
+                                <i data-feather="smartphone"></i>
+                                <div>
+                                    <h4>Frictionless Mobile Booking</h4>
+                                    <p>Locked viewports and massive touch-targets designed specifically to convert Instagram mobile traffic instantly.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i data-feather="database"></i>
+                                <div>
+                                    <h4>CRM Webhook Integration</h4>
+                                    <p>Patient data fires directly into your GoHighLevel, Cliniko, or custom CRM the exact second they submit an inquiry.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i data-feather="star"></i>
+                                <div>
+                                    <h4>Awwwards-Tier Polish</h4>
+                                    <p>Frosted glass mega-menus, staggered grid reveals, and parallax depth scrolling to communicate elite luxury.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div style="margin-top: 2.5rem; display: flex; gap: 1rem;">
+                            <a href="https://medspa-demosite.vercel.app/" target="_blank" class="btn btn-primary">View Live Demo</a>
+                        </div>
+                    </div>
+                    <div class="system-image-wrapper">
+                        <!-- Use a screenshot of the Medspa site here -->
+                        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80" alt="Medspa Platform Preview">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- System 2: Doctor -->
+        <section class="system-showcase">
+            <div class="container">
+                <div class="system-grid reverse fade-up">
+                    <div class="system-image-wrapper">
+                        <!-- Use a screenshot of the Doctor site here -->
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80" alt="Doctor Platform Preview">
+                    </div>
+                    <div class="system-content">
+                        <span style="color: var(--primary-color); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem;">Platform 02</span>
+                        <h2 style="font-size: 2.5rem; margin: 1rem 0;">The "Concierge Authority" Platform</h2>
+                        <p>Designed for Concierge Doctors, Private Physicians, and Longevity Clinics. This stark, clean architecture is built to establish unquestionable medical authority and capture high-net-worth patients.</p>
+                        
+                        <ul class="feature-list">
+                            <li>
+                                <i data-feather="shield"></i>
+                                <div>
+                                    <h4>Authority Sequencing</h4>
+                                    <p>Proprietary JavaScript staggered loading on Trust Logos (Cedars-Sinai, Forbes, WSJ) to build immediate, subconscious credibility.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i data-feather="lock"></i>
+                                <div>
+                                    <h4>Secure Patient Portal Routing</h4>
+                                    <p>Seamlessly integrates with your existing AthenaHealth, Elation, or custom secure patient portal.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i data-feather="layout"></i>
+                                <div>
+                                    <h4>Scientific Aesthetics</h4>
+                                    <p>Clean, stark, serif-typography animations that convey clinical precision over fluff. Full-screen cinematic mobile menus.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div style="margin-top: 2.5rem; display: flex; gap: 1rem;">
+                            <a href="https://doctor-demosite.vercel.app/" target="_blank" class="btn btn-primary">View Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="section" style="text-align: center; padding: 6rem 0;">
+            <div class="container fade-up">
+                <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Ready to upgrade your clinic?</h2>
+                <p style="margin-bottom: 2.5rem; color: var(--text-muted);">Stop losing high-ticket patients to inferior competitors with better digital infrastructure.</p>
+                <a href="https://cal.com/sterlingmere-holdings/discovery-call" target="_blank" class="btn btn-primary">Schedule Discovery Call</a>
+            </div>
+        </section>
+    </main>
+    <!-- Minimal Footer -->
+    <footer style="text-align: center; padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted);">
+        <p>&copy; 2026 Sterlingmere Holdings. All rights reserved.</p>
+    </footer>
+    <!-- Mobile Menu Script -->
+    <script>
+        feather.replace();
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileBtn.addEventListener('click', () => {
+            mobileBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Scroll reveal logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.fade-up, .fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

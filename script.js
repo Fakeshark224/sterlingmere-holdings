@@ -254,3 +254,34 @@ document.querySelectorAll('.faq-question').forEach(question => {
         }
     });
 });
+
+// Animated Counter for Stats Section
+const statItems = document.querySelectorAll('.stat-item h4');
+if (statItems.length > 0) {
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const text = el.textContent.trim();
+                const match = text.match(/^(\d+)/);
+                if (match) {
+                    const target = parseInt(match[1]);
+                    const suffix = text.replace(match[1], '');
+                    let current = 0;
+                    const duration = 1500;
+                    const step = Math.ceil(target / (duration / 16));
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        el.textContent = current + suffix;
+                    }, 16);
+                }
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+    statItems.forEach(item => counterObserver.observe(item));
+}

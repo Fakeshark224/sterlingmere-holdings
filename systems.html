@@ -11,22 +11,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/feather-icons"></script>
-    <!-- Page Specific CSS for Layout -->
+    <!-- Page Specific CSS for Layout & Pricing -->
     <style>
-        .system-showcase { padding: 8rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .system-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
-        .system-image-wrapper { background: var(--bg-surface); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-lg); }
+        .system-showcase { padding: 6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .system-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+        .system-image-wrapper { background: var(--bg-surface); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-lg); position: sticky; top: 120px; }
         .system-image-wrapper img { width: 100%; border-radius: 8px; }
         .feature-list { list-style: none; padding: 0; margin-top: 2rem; }
         .feature-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
         .feature-list i { color: var(--primary-light); flex-shrink: 0; margin-top: 4px; }
         .feature-list h4 { color: var(--text-light); margin-bottom: 0.2rem; font-size: 1.1rem; }
-        .feature-list p { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
+        .feature-list p { color: var(--text-muted); font-size: 0.95rem; margin: 0; line-height: 1.5; }
+        
+        /* Pricing Grid Styles */
+        .pricing-section { margin-top: 4rem; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 3rem; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .pricing-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 2rem; text-align: left; transition: transform 0.3s ease; }
+        .pricing-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.1); }
+        .pricing-card.popular { background: rgba(255,255,255,0.04); border: 1px solid var(--primary-color); position: relative; }
+        .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary-color); color: #000; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; text-transform: uppercase; }
+        
+        .pricing-name { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500; }
+        /* Fix for the $ sign font issue */
+        .pricing-price { font-family: 'Inter', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--text-light); margin-bottom: 1.5rem; letter-spacing: -1px; }
+        
+        .pricing-features { list-style: none; padding: 0; margin: 0 0 2rem 0; }
+        .pricing-features li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 8px; }
+        .pricing-features i { width: 14px; height: 14px; color: var(--primary-color); }
         
         @media (max-width: 992px) {
             .system-grid { grid-template-columns: 1fr; gap: 3rem; }
             .system-grid.reverse { direction: rtl; }
             .system-grid.reverse > * { direction: ltr; }
+            .system-image-wrapper { position: relative; top: 0; }
+            .pricing-grid { grid-template-columns: 1fr; gap: 2rem; }
         }
     </style>
 </head>
@@ -50,11 +68,11 @@
     </header>
     <main>
         <!-- Page Header -->
-        <section class="section" style="padding-top: 150px; padding-bottom: 4rem; text-align: center;">
+        <section class="section" style="padding-top: 150px; padding-bottom: 2rem; text-align: center;">
             <div class="container">
                 <span class="badge fade-in">Proprietary Architecture</span>
                 <h1 class="fade-up delay-1" style="font-size: clamp(2.5rem, 5vw, 4.5rem); margin: 1.5rem 0;">Digital Infrastructure for <br><span class="text-gradient">Elite Medical Practices.</span></h1>
-                <p class="fade-up delay-2" style="max-width: 700px; margin: 0 auto;">We don't build websites. We engineer high-converting patient acquisition systems. Explore our two flagship architectures below.</p>
+                <p class="fade-up delay-2" style="max-width: 700px; margin: 0 auto; color: var(--text-muted);">Transparent pricing. Zero negotiations. Choose the system that fits your practice's growth targets.</p>
             </div>
         </section>
         <!-- System 1: Medspa -->
@@ -64,7 +82,7 @@
                     <div class="system-content">
                         <span style="color: var(--primary-color); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem;">Platform 01</span>
                         <h2 style="font-size: 2.5rem; margin: 1rem 0;">The "Clinical Elegance" Platform</h2>
-                        <p>Engineered exclusively for luxury Medspas, Aesthetic Clinics, and Injectors. This architecture leverages high-end design psychology to position your clinic as the most premium option in your city.</p>
+                        <p style="color: var(--text-muted); line-height: 1.6;">Engineered exclusively for luxury Medspas and Aesthetic Clinics. This architecture leverages high-end design psychology to position your clinic as the most premium option in your city.</p>
                         
                         <ul class="feature-list">
                             <li>
@@ -78,24 +96,61 @@
                                 <i data-feather="database"></i>
                                 <div>
                                     <h4>CRM Webhook Integration</h4>
-                                    <p>Patient data fires directly into your GoHighLevel, Cliniko, or custom CRM the exact second they submit an inquiry.</p>
+                                    <p>Patient data fires directly into your GoHighLevel or Cliniko CRM the exact second they submit an inquiry.</p>
                                 </div>
                             </li>
                             <li>
                                 <i data-feather="star"></i>
                                 <div>
                                     <h4>Awwwards-Tier Polish</h4>
-                                    <p>Frosted glass mega-menus, staggered grid reveals, and parallax depth scrolling to communicate elite luxury.</p>
+                                    <p>Frosted glass mega-menus and staggered grid reveals to communicate elite luxury.</p>
                                 </div>
                             </li>
                         </ul>
+                        <!-- Medspa Pricing Grid -->
+                        <div class="pricing-section">
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Investment Tiers</h3>
+                            <div class="pricing-grid">
+                                <!-- Tier 1 -->
+                                <div class="pricing-card">
+                                    <div class="pricing-name">Essential</div>
+                                    <div class="pricing-price">$2,850</div>
+                                    <ul class="pricing-features">
+                                        <li><i data-feather="check"></i> Rebranded Core Website</li>
+                                        <li><i data-feather="check"></i> Standard Email Forms</li>
+                                        <li><i data-feather="check"></i> Domain Deployment</li>
+                                    </ul>
+                                </div>
+                                <!-- Tier 2 -->
+                                <div class="pricing-card popular">
+                                    <div class="popular-badge">Most Popular</div>
+                                    <div class="pricing-name">Growth Funnel</div>
+                                    <div class="pricing-price">$5,800</div>
+                                    <ul class="pricing-features">
+                                        <li><i data-feather="check"></i> Everything in Essential</li>
+                                        <li><i data-feather="check"></i> Mobile Booking Flow</li>
+                                        <li><i data-feather="check"></i> CRM Webhook Integration</li>
+                                        <li><i data-feather="check"></i> Local SEO Setup</li>
+                                    </ul>
+                                </div>
+                                <!-- Tier 3 -->
+                                <div class="pricing-card">
+                                    <div class="pricing-name">Market Leader</div>
+                                    <div class="pricing-price">$9,500</div>
+                                    <ul class="pricing-features">
+                                        <li><i data-feather="check"></i> Complete Ecosystem</li>
+                                        <li><i data-feather="check"></i> Automated SMS Follow-ups</li>
+                                        <li><i data-feather="check"></i> Tech SEO & Schema</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         
-                        <div style="margin-top: 2.5rem; display: flex; gap: 1rem;">
-                            <a href="https://medspa-demosite.vercel.app/" target="_blank" class="btn btn-primary">View Live Demo</a>
+                        <div style="margin-top: 2.5rem;">
+                            <a href="https://medspa-demosite.vercel.app/" target="_blank" class="btn btn-secondary">Preview Live Platform &rarr;</a>
                         </div>
                     </div>
                     <div class="system-image-wrapper">
-                        <!-- Use a screenshot of the Medspa site here -->
                         <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80" alt="Medspa Platform Preview">
                     </div>
                 </div>
@@ -106,26 +161,25 @@
             <div class="container">
                 <div class="system-grid reverse fade-up">
                     <div class="system-image-wrapper">
-                        <!-- Use a screenshot of the Doctor site here -->
                         <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80" alt="Doctor Platform Preview">
                     </div>
                     <div class="system-content">
                         <span style="color: var(--primary-color); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem;">Platform 02</span>
                         <h2 style="font-size: 2.5rem; margin: 1rem 0;">The "Concierge Authority" Platform</h2>
-                        <p>Designed for Concierge Doctors, Private Physicians, and Longevity Clinics. This stark, clean architecture is built to establish unquestionable medical authority and capture high-net-worth patients.</p>
+                        <p style="color: var(--text-muted); line-height: 1.6;">Designed for Concierge Doctors and Private Physicians. This stark, clean architecture is built to establish unquestionable medical authority and capture high-net-worth patients.</p>
                         
                         <ul class="feature-list">
                             <li>
                                 <i data-feather="shield"></i>
                                 <div>
                                     <h4>Authority Sequencing</h4>
-                                    <p>Proprietary JavaScript staggered loading on Trust Logos (Cedars-Sinai, Forbes, WSJ) to build immediate, subconscious credibility.</p>
+                                    <p>Staggered loading on Trust Logos (Cedars-Sinai, Forbes) to build immediate, subconscious credibility.</p>
                                 </div>
                             </li>
                             <li>
                                 <i data-feather="lock"></i>
                                 <div>
-                                    <h4>Secure Patient Portal Routing</h4>
+                                    <h4>Patient Portal Routing</h4>
                                     <p>Seamlessly integrates with your existing AthenaHealth, Elation, or custom secure patient portal.</p>
                                 </div>
                             </li>
@@ -133,13 +187,51 @@
                                 <i data-feather="layout"></i>
                                 <div>
                                     <h4>Scientific Aesthetics</h4>
-                                    <p>Clean, stark, serif-typography animations that convey clinical precision over fluff. Full-screen cinematic mobile menus.</p>
+                                    <p>Clean, stark, serif-typography animations that convey clinical precision over fluff.</p>
                                 </div>
                             </li>
                         </ul>
+                        <!-- Doctor Pricing Grid -->
+                        <div class="pricing-section">
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Investment Tiers</h3>
+                            <div class="pricing-grid">
+                                <!-- Tier 1 -->
+                                <div class="pricing-card">
+                                    <div class="pricing-name">Starter Practice</div>
+                                    <div class="pricing-price">$4,200</div>
+                                    <ul class="pricing-features">
+                                        <li><i data-feather="check"></i> Premium Architecture</li>
+                                        <li><i data-feather="check"></i> Mobile Optimization</li>
+                                        <li><i data-feather="check"></i> Standard Form Routing</li>
+                                    </ul>
+                                </div>
+                                <!-- Tier 2 -->
+                                <div class="pricing-card popular">
+                                    <div class="popular-badge">Most Popular</div>
+                                    <div class="pricing-name">Elite Practice</div>
+                                    <div class="pricing-price">$7,850</div>
+                                    <ul class="pricing-features">
+                                        <li><i data-feather="check"></i> Everything in Starter</li>
+                                        <li><i data-feather="check"></i> Secure Portal Routing</li>
+                                        <li><i data-feather="check"></i> HIPAA-Ready Infrastructure</li>
+                                        <li><i data-feather="check"></i> Awwwards Animations</li>
+                                    </ul>
+                                </div>
+                                <!-- Tier 3 -->
+                                <div class="pricing-card">
+                                    <div class="pricing-name">Dominance</div>
+                                    <div class="pricing-price">$14,500</div>
+                                    <ul class="pricing-features">
+                                        <li><i data-feather="check"></i> Complete Ecosystem</li>
+                                        <li><i data-feather="check"></i> Patient Onboarding Automations</li>
+                                        <li><i data-feather="check"></i> Elite Market Positioning</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         
-                        <div style="margin-top: 2.5rem; display: flex; gap: 1rem;">
-                            <a href="https://doctor-demosite.vercel.app/" target="_blank" class="btn btn-primary">View Live Demo</a>
+                        <div style="margin-top: 2.5rem;">
+                            <a href="https://doctor-demosite.vercel.app/" target="_blank" class="btn btn-secondary">Preview Live Platform &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -150,7 +242,7 @@
         <section class="section" style="text-align: center; padding: 6rem 0;">
             <div class="container fade-up">
                 <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Ready to upgrade your clinic?</h2>
-                <p style="margin-bottom: 2.5rem; color: var(--text-muted);">Stop losing high-ticket patients to inferior competitors with better digital infrastructure.</p>
+                <p style="margin-bottom: 2.5rem; color: var(--text-muted);">Schedule a technical discovery call to identify the revenue leaks in your current website.</p>
                 <a href="https://cal.com/sterlingmere-holdings/discovery-call" target="_blank" class="btn btn-primary">Schedule Discovery Call</a>
             </div>
         </section>
@@ -159,7 +251,7 @@
     <footer style="text-align: center; padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted);">
         <p>&copy; 2026 Sterlingmere Holdings. All rights reserved.</p>
     </footer>
-    <!-- Mobile Menu Script -->
+    <!-- Scripts -->
     <script>
         feather.replace();
         const mobileBtn = document.querySelector('.mobile-menu-btn');
@@ -174,11 +266,13 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Add active class if elements use that instead
+                    entry.target.classList.add('active'); 
                 }
             });
         }, { threshold: 0.1 });
         
-        document.querySelectorAll('.fade-up, .fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.fade-up, .fade-in, .slide-left, .slide-right, .scale-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

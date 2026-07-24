@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animateGlow();
 
         // Enlarge glow when hovering over buttons or cards
-        const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .service-card');
+        const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .service-card, .pricing-card');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursorGlow.style.width = '600px';
@@ -224,6 +224,14 @@ document.addEventListener('DOMContentLoaded', () => {
             speed: 400,
             glare: true,
             "max-glare": 0.3,
+            scale: 1.02
+        });
+        
+        VanillaTilt.init(document.querySelectorAll(".pricing-card"), {
+            max: 8,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.15,
             scale: 1.02
         });
     }

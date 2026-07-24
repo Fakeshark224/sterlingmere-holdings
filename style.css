@@ -303,7 +303,8 @@ p {
     transition: var(--transition);
 }
 
-.service-card:hover {
+/* Specificity fix: added .visible to override .scale-in.visible */
+.service-card.visible:hover {
     transform: translateY(-8px) scale(1.02);
     border-color: rgba(99, 102, 241, 0.3);
     box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
@@ -335,7 +336,8 @@ p {
     transition: var(--transition);
 }
 
-.portfolio-card:hover {
+/* Specificity fix: added .visible to override .scale-in.visible */
+.portfolio-card.visible:hover {
     transform: translateY(-5px);
     border-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);

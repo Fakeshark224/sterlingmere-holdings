@@ -133,6 +133,7 @@ p {
 
 /* Buttons */
 .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -144,6 +145,20 @@ p {
     cursor: pointer;
     border: none;
     font-size: 1rem;
+}
+
+/* Invisible magnetic forcefield */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: -24px; bottom: -24px;
+    left: -24px; right: -24px;
+    z-index: -1;
+}
+
+/* Fast-tracking for when the magnet is engaged */
+.btn.magnetic-active {
+    transition: transform 0.1s linear, box-shadow 0.4s ease !important;
 }
 
 .btn-primary {

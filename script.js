@@ -150,17 +150,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isTouchDevice) {
         const buttons = document.querySelectorAll('.btn');
         buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.classList.add('magnetic-active');
+            });
             btn.addEventListener('mousemove', (e) => {
                 const rect = btn.getBoundingClientRect();
-                // Check if within 100px radius
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
                 
                 // Pull toward cursor
-                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                btn.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px)`;
             });
-
             btn.addEventListener('mouseleave', () => {
+                btn.classList.remove('magnetic-active');
                 btn.style.transform = '';
             });
         });
